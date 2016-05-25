@@ -29,4 +29,5 @@ Route::post('auth/register', 'Auth\AuthController@postRegister');
 // Маршруты постов
 
 Route::get('/posts', 'PostController@index');
+Route::post('/post', 'PostController@write');
 
