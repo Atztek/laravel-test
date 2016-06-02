@@ -26,8 +26,18 @@ Route::get('auth/register', 'Auth\AuthController@getRegister');
 Route::post('auth/register', 'Auth\AuthController@postRegister');
 
 
-// Маршруты постов
-
+// Маршруты постов , удалить переделать
 Route::get('/posts', 'PostController@index');
 Route::post('/post', 'PostController@write');
+
+//Рабочаю область , виртуальный стол
+Route::get('/adventures', 'Table\AdventureController@index');
+Route::get('/adventure/add', 'Table\AdventureController@form');
+Route::get('/adventure/{adventure}/edit', 'Table\AdventureController@edit');
+Route::post('/adventure/{adventure}/update', 'Table\AdventureController@update');
+
+Route::post('/adventure/add', 'Table\AdventureController@write');
+
+
+Route::post('/adventure', 'Table\AdventureController@write');
 

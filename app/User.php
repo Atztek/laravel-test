@@ -28,4 +28,14 @@ class User extends Authenticatable
     {
         return $this->hasMany(Post::class);
     }
+
+    public function ownAdventures(){
+        return $this->hasMany(Adventure::class,"create_user_id");
+    }
+
+    public function adventures()
+    {
+        return $this->belongsToMany(Adventure::class);
+    }
+
 }

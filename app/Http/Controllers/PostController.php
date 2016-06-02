@@ -23,7 +23,7 @@ class PostController extends Controller
 
 	public function write(Request $request){
 		$this->validate($request, [
-		    'message' => 'required|max:1000',
+		    'message' => 'required|max:1000'
 		]);
 
 		$request->user()->posts()->create([
