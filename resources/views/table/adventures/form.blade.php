@@ -7,8 +7,11 @@
 
   			
 		@include('common.errors')
+		@if (isset($adventure))
 		{{ Form::model($adventure, array('action' => array('Table\AdventureController@update', $adventure->id))) }}
-		{{-- Form::open(array('url' => '/adventure/add')) --}}
+		@else
+		{{ Form::open(array('url' => '/adventure/add')) }}
+		@endif
 
 		    <div class="form-group">
 		        {{ Form::label('name', Lang::get('table.adventures.form.name') ) }}
@@ -24,7 +27,9 @@
 		    {{ Form::submit(Lang::get('table.adventures.form.button'), array('class' => 'btn btn-primary')) }}
 
 		{{ Form::close() }}
-
+		<script>
+			var simplemde = new SimpleMDE({ element: $("#description")[0] });
+		</script>
   			
   	</div>
 </div>

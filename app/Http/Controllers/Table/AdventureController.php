@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Common\Utility;
+
 
 class AdventureController extends Controller
 {
@@ -23,6 +25,8 @@ class AdventureController extends Controller
 	}
 
 	public function write(Request $request){
+		Utility::stripXSS();
+
 		$this->validate($request, [
 		    'description' => 'required|max:1000|min:4',
 		    'name' => 'required|max:255|min:4',
@@ -37,6 +41,8 @@ class AdventureController extends Controller
 	}
 
 	public function update(Request $request,\App\Adventure $adventure){
+		Utility::stripXSS();
+		
 		$this->validate($request, [
 		    'description' => 'required|max:1000|min:4',
 		    'name' => 'required|max:255|min:4',

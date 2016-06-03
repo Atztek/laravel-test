@@ -6,7 +6,7 @@
 		<div>
 			<h3>{{ $adventure->name }}</h3>
 			<div>
-				{{ $adventure->description }}
+				{!! @markdown($adventure->description) !!}
 			</div>
 			<a href="{{ action('Table\AdventureController@edit', [ $adventure->id] ) }}">
 				{{ Lang::get("table.adventures.edit")}}
