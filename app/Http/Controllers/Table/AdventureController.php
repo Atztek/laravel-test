@@ -24,6 +24,15 @@ class AdventureController extends Controller
 		]);
 	}
 
+	public function show(Request $request,\App\Adventure $adventure){
+		$posts = $adventure->posts;		
+
+		return view('table.adventures.adventure',[
+			"adventure" =>$adventure ,
+			"posts" => $posts
+		]);
+	}
+
 	public function write(Request $request){
 		Utility::stripXSS();
 

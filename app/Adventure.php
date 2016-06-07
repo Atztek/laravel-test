@@ -14,7 +14,11 @@ class Adventure extends Model
   	}
 
   	public function players(){
-  		$this->belongsToMany(User::class);
+  		//$this->hasMany(User::class);
+  	}  	
+
+  	public function posts(){
+  		return $this->hasMany(Post::class);
   	}
 
 }
