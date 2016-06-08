@@ -5,3 +5,9 @@ https://rubaxa.github.io/Sortable/
 https://github.com/uploadcare/uploadcare-summernote
 
 SimpleMDE
+
+
+$filename = Input::file('filename');
+$change = $filename->getClientOriginalExtension();
+$newfilename = Auth::id().str_random(10).'.';
+$filename->move('files', "{$newfilename}" .$change);  

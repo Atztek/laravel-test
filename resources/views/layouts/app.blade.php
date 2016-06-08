@@ -30,7 +30,7 @@
 		    </div>
 			<div class="navbar-collapse collapse">
 				<ul class="nav navbar-nav">
-				    <li><a href="#">Adventure</a></li>
+				    <li><a href="{{ action('Table\AdventureController@index') }}">Adventure</a></li>
 						
 					@if (Auth::check())
 						<li><a href="{{ url('auth/logout') }}">Logout</a></li>
