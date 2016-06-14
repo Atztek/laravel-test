@@ -37,14 +37,12 @@ Route::get('/adventure/{adventure}', 'Table\AdventureController@show');
 Route::get('/adventure/{adventure}/edit', 'Table\AdventureController@edit');
 Route::post('/adventure/{adventure}/update', 'Table\AdventureController@update');
 
-
 Route::post('/adventure/{adventure}/addpost', 'Table\PostController@write');
-
-
-
-
 Route::post('/adventure/add', 'Table\AdventureController@write');
-
-
 Route::post('/adventure', 'Table\AdventureController@write');
+
+// профиль пользователя
+Route::get('acount/profile','Profile\ProfileController@index');
+
+Route::get('acount/profile/character/add','Profile\CharacterController@add');
 

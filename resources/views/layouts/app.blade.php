@@ -21,30 +21,32 @@
 </head>
 <body>
 	<div class="container">
-		<nav class="navbar navbar-inverse">
-		  <div class="container-fluid">
-		    <div class="navbar-header">
-		      <a class="navbar-brand" href="/">
-		        D&D 
-		      </a>
-		    </div>
-			<div class="navbar-collapse collapse">
-				<ul class="nav navbar-nav">
-				    <li><a href="{{ action('Table\AdventureController@index') }}">Adventure</a></li>
-						
-					@if (Auth::check())
-						<li><a href="{{ url('auth/logout') }}">Logout</a></li>
-						<li><a href="{{ url('acount/profile') }}">Account</a></li>
-					@else
-				    	<li><a href="{{ url('auth/login') }}">Login</a></li>
-				    	<li><a href="{{ url('auth/register') }}">Register</a></li>
-					@endif
+		<div class="header">
+			<nav class="navbar navbar-inverse">
+			  <div class="container-fluid">
+			    <div class="navbar-header">
+			      <a class="navbar-brand" href="/">
+			        D&D 
+			      </a>
+			    </div>
+				<div class="navbar-collapse collapse">
+					<ul class="nav navbar-nav">
+					    <li><a href="{{ action('Table\AdventureController@index') }}">Adventure</a></li>
+							
+						@if (Auth::check())
+							<li><a href="{{ url('auth/logout') }}">Logout</a></li>
+							<li><a href="{{ url('acount/profile') }}">Account</a></li>
+						@else
+					    	<li><a href="{{ url('auth/login') }}">Login</a></li>
+					    	<li><a href="{{ url('auth/register') }}">Register</a></li>
+						@endif
 
-				</ul>
-			</div>
+					</ul>
+				</div>
 
-		  </div>
-		</nav>
+			  </div>
+			</nav>
+		</div>
 
 		@yield('content')
 	</div>
