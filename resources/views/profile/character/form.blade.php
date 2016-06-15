@@ -1,17 +1,26 @@
 @extends('layouts.app')
 
 @section('content')
+{{ Form::open( array('action' => array('Profile\CharacterController@write'))) }}
 
+
+
+{{ Form::submit(Lang::get('profile.characterform.button_submit'), array('class' => 'btn btn-primary')) }}
 <div class="row">
+	<div class="col-xs-12">
+		@include('common.errors')
+	</div>
 	<div class="col-xs-4">
 		<div class="panel panel-info">
 			<div class="panel-heading">
 				{{ Lang::get("profile.characterform.main_info") }}
 			</div>
+
+			
 			<div class="panel-body">
 				<div class="form-group">
-					{{ Form::label('name', Lang::get('profile.characterform.name') ) }}
-		        	{{ Form::text('name', Input::old('name'), array('class' => 'form-control')) }}
+					{{ Form::label('character-name', Lang::get('profile.characterform.character-name') ) }}
+		        	{{ Form::text('character-name', Input::old('character-name'), array('class' => 'form-control')) }}
 				</div>
 
 				<div class="form-group">
@@ -39,6 +48,6 @@
 	</div>
 	<div class="col-xs-8"></div>
 </div>
-
+{{ Form::close() }}
 
 @endsection

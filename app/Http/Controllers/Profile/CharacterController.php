@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Common\Utility;
 
 class CharacterController extends Controller
 {
@@ -17,7 +18,7 @@ class CharacterController extends Controller
 	public function write(Request $request){
 		Utility::stripXSS();
 		$this->validate($request, [
-		    'message' => 'required|max:1000'
+		    'charactername' => 'required|max:200'
 		]);
 		
 	}

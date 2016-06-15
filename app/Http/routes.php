@@ -45,4 +45,5 @@ Route::post('/adventure', 'Table\AdventureController@write');
 Route::get('acount/profile','Profile\ProfileController@index');
 
 Route::get('acount/profile/character/add','Profile\CharacterController@add');
+Route::post('acount/profile/character/add','Profile\CharacterController@write');
 
