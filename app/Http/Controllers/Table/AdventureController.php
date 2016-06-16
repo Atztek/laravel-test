@@ -18,14 +18,14 @@ class AdventureController extends Controller
 
 	public function index(Request $request)
 	{
-		$adventures = \App\Adventure::get();
+		$adventures = $request->user()->ownAdventures()->get();
 		return view('table.adventures.list',[
 		    'adventures' => $adventures,
 		]);
 	}
 
 	public function show(Request $request,\App\Adventure $adventure){
-		$posts = $adventure->posts;		
+		$posts = $adventure->posts()->paginate(20);		
 
 		return view('table.adventures.adventure',[
 			"adventure" =>$adventure ,
@@ -46,7 +46,7 @@ class AdventureController extends Controller
 		    'description' => $request->description,
 		]);
 
-		return redirect('/adventures');
+		return redirect()->action('Table\AdventureController@index');
 	}
 
 	public function update(Request $request,\App\Adventure $adventure){
@@ -61,7 +61,14 @@ class AdventureController extends Controller
 		$adventure->description = $request->description;
 		$adventure->save();
 
-		return redirect('/adventures');
+		return redirect()->action('Table\AdventureController@index');
+	}
+
+	public function destroy(Request $request,\App\Adventure $adventure){
+		$this->authorize('destroy', $adventure);
+		$adventure->delete();
+
+    	return redirect()->action('Table\AdventureController@index');	
 	}
 
 	public function form(Request $request)

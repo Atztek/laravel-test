@@ -36,6 +36,7 @@ Route::get('/adventure/add', 'Table\AdventureController@form');
 Route::get('/adventure/{adventure}', 'Table\AdventureController@show');
 Route::get('/adventure/{adventure}/edit', 'Table\AdventureController@edit');
 Route::post('/adventure/{adventure}/update', 'Table\AdventureController@update');
+Route::delete('/adventure/{adventure}', 'Table\AdventureController@destroy');
 
 Route::post('/adventure/{adventure}/addpost', 'Table\PostController@write');
 Route::post('/adventure/add', 'Table\AdventureController@write');

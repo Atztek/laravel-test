@@ -10,10 +10,12 @@
 	{!! @markdown($adventure->description) !!}
 </div>
 
-@foreach ($posts as $post)
-	<div class="panel panel-default">
-		<div class="panel-heading">Panel heading without title</div>
-	  	<div class="panel-body">
+{{ $posts->links() }}
+
+<div class="panel panel-default">
+	<div class="panel-heading">{{ Lang::get("table.adventures.posts")}}</div>
+  	<div class="panel-body">
+  		@foreach ($posts as $post)
 	  		<div class="row">
 	  			<div class="col-xs-2">
 	  				{{$post->user->name}}<br>
@@ -23,9 +25,11 @@
 	  				{!! @markdown($post->message) !!}
 	  			</div>
 	  		</div>
-	  	</div>
-	</div>
-@endforeach
+	  		<hr>
+  		@endforeach
+  	</div>
+</div>
+
 
 <div class="panel panel-default">
 	<div class="panel-heading">{{ Lang::get("table.adventures.newpost")}}</div>
@@ -39,7 +43,7 @@
 	    	</div>
 	    	<button type="submitt" class="btn btn-primary">{{ Lang::get("table.adventures.postsend")}}</button>
 	    	<script>
-				var simplemde = new SimpleMDE({ element: $("#message")[0] });
+				var simplemde = new SimpleMDE({ element: $("#message")[0] ,spellChecker:false});
 			</script>
   		</form>
   	</div>

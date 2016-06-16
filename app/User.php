@@ -38,4 +38,8 @@ class User extends Authenticatable
         return $this->belongsToMany(Adventure::class);
     }
 
+    public function ownCharacters(){
+        return $this->hasMany(Character::class,"user_creator_id");
+    }
+
 }

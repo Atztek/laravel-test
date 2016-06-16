@@ -16,8 +16,11 @@ class ProfileController extends Controller
 
 	public function index(Request $request)
 	{
+		$characters = $request->user()->ownCharacters()->get();
+
 		return view('profile.profile',[
-			'user'=>$request->user()
+			'user'=>$request->user(),
+			'characters'=>$characters
 		]);
 	}
 

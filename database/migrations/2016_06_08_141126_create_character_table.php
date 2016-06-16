@@ -15,6 +15,10 @@ class CreateCharacterTable extends Migration
         Schema::create('characters', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_creator_id')->index();
+
+            $table->integer('level');
+            $table->integer('exp');
+
             $table->string('name');
 
             $table->string('image');

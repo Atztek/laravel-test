@@ -19,8 +19,8 @@
 			
 			<div class="panel-body">
 				<div class="form-group">
-					{{ Form::label('character-name', Lang::get('profile.characterform.character-name') ) }}
-		        	{{ Form::text('character-name', Input::old('character-name'), array('class' => 'form-control')) }}
+					{{ Form::label('charactername', Lang::get('profile.characterform.charactername') ) }}
+		        	{{ Form::text('charactername', Input::old('charactername'), array('class' => 'form-control')) }}
 				</div>
 
 				<div class="form-group">
@@ -43,6 +43,7 @@
 					{{ Form::label('image', Lang::get('profile.characterform.image') ) }}
 					{{ Form::file('image',array('class' => 'form-control')) }}
 				</div>
+				
 			</div>
 		</div>
 	</div>

@@ -18,14 +18,14 @@
 		<div class="panel panel-info">
 			<div class="panel-heading">{{ Lang::get("profile.profile.user_characters") }}</div>
 		  	<table class="table">
+		  		@foreach ($characters as $character)
+		  		
 	    		<tr>
-	    			<td></td>
+	    			<td>{{ $character->name }}</td>
 	    			<td></td>
 	    		</tr>
-	    		<tr>
-	    			<td></td>
-	    			<td></td>
-	    		</tr>
+				@endforeach
+	    		
 	    	</table>
 		  	<div class="panel-footer">
 		  		<a href="{{ action('Profile\CharacterController@add') }}" class="btn btn-primary">

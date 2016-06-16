@@ -18,9 +18,21 @@ class CharacterController extends Controller
 	public function write(Request $request){
 		Utility::stripXSS();
 		$this->validate($request, [
-		    'charactername' => 'required|max:200'
+		    'charactername' => 'required|alpha_num|max:200',
+		    'age' => 'required|numeric',
+		    'height' => 'required|numeric',
+		    'weight' => 'required|numeric'
+		]);
+
+
+		$request->user()->ownCharacters()->create([
+		    'name' => $request->charactername,
+		    'age' => $request->age,
+		    'height' => $request->height,
+		    'weight' => $request->weight
 		]);
 		
+		return redirect()->action('Profile\ProfileController@index');
 	}
 
     public function add(Request $request){
